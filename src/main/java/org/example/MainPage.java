@@ -38,6 +38,7 @@ public class MainPage {
     // Кнопка оформления заказа в теле сайта под "Как это работает"
     private final By orderButtonBody = By.xpath(".//div[contains(@class,'FinishButton')]//button[text()='Заказать']");
 
+
     // Конструктор класса, принимает драйвер
     public MainPage(WebDriver driver){
         this.driver = driver;

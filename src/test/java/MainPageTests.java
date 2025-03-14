@@ -50,16 +50,13 @@ public class MainPageTests {
         };
     }
 
-    @BeforeClass
-    public static void initialSetup() {
+    @Before
+    public void initialSetup() {
 
         isDebugging = false;
 
         // Открытие страницы скутера
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        driver = new ChromeDriver(options);
-        driver = new Augmenter().augment(driver);
+        driver = new ChromeDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
         objMainPage = new MainPage(driver);
         objMainPage.waitForLoadFaq();
@@ -96,8 +93,8 @@ public class MainPageTests {
         MatcherAssert.assertThat("Текст ответа не совпадает: ", faqAnswer, containsString(checkedText));
     }
 
-    @AfterClass
-    public static void tearDown() {
+    @After
+    public void tearDown() {
         if (driver!=null)
         driver.quit();
     }
